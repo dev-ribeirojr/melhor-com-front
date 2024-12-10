@@ -4,6 +4,7 @@ import { iconsApp } from '../../../../assets/icons'
 import { Link } from 'react-router-dom'
 import { useTableProducts } from './use-table-products'
 import { ButtonDeletePhone } from './_ui'
+import { formatColors, formatToBrl } from '../../../../utils'
 
 export function TableProducts() {
   const { headerTableItems, phones } = useTableProducts()
@@ -31,9 +32,13 @@ export function TableProducts() {
             >
               <td className="text-left pl-4 text-sm"> {phone.code}</td>
               <td className="text-left pl-4 text-sm">{phone.model}</td>
-              <td className="text-left pl-4 text-sm">{phone.price}</td>
+              <td className="text-left pl-4 text-sm">
+                {formatToBrl(Number(phone.price))}
+              </td>
               <td className="text-left pl-4 text-sm">{phone.brand}</td>
-              <td className="text-left pl-4 text-sm">{phone.color}</td>
+              <td className="text-left pl-4 text-sm">
+                {formatColors(phone.color)}
+              </td>
               <td className="text-right">
                 <div className="flex items-center gap-2 justify-end px-4">
                   <Link
