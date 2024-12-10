@@ -1,16 +1,14 @@
-import { ReactNode } from 'react'
 import { Footer, Header } from './_ui'
+import { Outlet } from 'react-router-dom'
 
-interface LayoutProps {
-  children: ReactNode
-}
-
-export function Layout({ children }: LayoutProps) {
+export function Layout() {
   return (
     <div className="h-full flex flex-col">
       <Header />
       <main className="flex-1 px-4">
-        <div className="flex-1 w-full max-w-screen-lg mx-auto">{children}</div>
+        <div className="flex-1 w-full max-w-screen-lg mx-auto">
+          <Outlet />
+        </div>
       </main>
       <Footer />
     </div>

@@ -1,10 +1,10 @@
-import { Layout } from './components'
-
+import { BrowserRouter } from 'react-router-dom'
+import { RoutesApp } from './routes/router'
 function App() {
   return (
-    <Layout>
-      <div>ITEMS</div>
-    </Layout>
+    <BrowserRouter>
+      <RoutesApp />
+    </BrowserRouter>
   )
 }
 
