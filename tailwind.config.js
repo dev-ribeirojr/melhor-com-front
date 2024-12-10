@@ -13,6 +13,7 @@ export default {
   theme: {
     extend: {
       colors: {
+        white: '#DAE3ED',
         primary: {
           50: '#f0f7ff',
           100: '#dfedff',
