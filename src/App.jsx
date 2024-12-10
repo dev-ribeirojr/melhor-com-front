@@ -1,5 +1,11 @@
+import { Layout } from './components'
+
 function App() {
-  return <div className="bg-red-400 p-4">teste</div>
+  return (
+    <Layout>
+      <div>ITEMS</div>
+    </Layout>
+  )
 }
 
 export default App
