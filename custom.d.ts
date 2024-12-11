@@ -19,3 +19,12 @@ declare module '*.svg' {
   export { ReactComponent }
   export default value
 }
+
+interface ImportMetaEnv {
+  readonly VITE_API_MELHOR_COM_BASE_URL: string
+  readonly VITE_CPF_VALUE: string
+}
+
+interface ImportMeta {
+  readonly env: ImportMetaEnv
+}
