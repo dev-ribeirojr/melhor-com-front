@@ -1,11 +1,13 @@
-/** @type {import('tailwindcss').Config} */
 import react from '@vitejs/plugin-react'
 import tailwindcss from 'tailwindcss'
+import tailwindcssAnimate from 'tailwindcss-animate'
 
 export default {
   darkMode: ['class'],
-  // eslint-disable-next-line @typescript-eslint/no-require-imports
-  plugins: [react(), require('tailwindcss-animate')],
+  plugins: [
+    react(),
+    tailwindcssAnimate, // Usando import para o plugin
+  ],
   css: {
     postcss: {
       plugins: [tailwindcss()],
