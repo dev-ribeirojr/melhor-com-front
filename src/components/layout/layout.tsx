@@ -5,7 +5,7 @@ export function Layout() {
   return (
     <div className="h-full flex flex-col">
       <Header />
-      <main className="flex-1 px-4">
+      <main className="flex-1 px-4 pb-8">
         <div className="flex-1 w-full max-w-screen-lg mx-auto">
           <Outlet />
         </div>
