@@ -5,9 +5,17 @@ const isRequiredText = 'Campo obrigatório'
 const dateRegex = /^\d{2}\/\d{2}\/\d{4}$/
 
 export const productSchema = z.object({
-  model: z.string({ required_error: isRequiredText }).min(1, isRequiredText),
-  brand: z.string({ required_error: isRequiredText }).min(1, isRequiredText),
-  price: z.number({ required_error: isRequiredText }).min(0, 'Preço inválido'),
+  model: z
+    .string({ required_error: isRequiredText })
+    .min(2, isRequiredText)
+    .max(255, 'Modelo inválido'),
+  brand: z
+    .string({ required_error: isRequiredText })
+    .min(2, isRequiredText)
+    .max(255, 'Marca inválida'),
+  price: z
+    .number({ required_error: isRequiredText })
+    .positive('O preço deve ser um número positivo'),
   date: z
     .string({ required_error: isRequiredText })
     .min(1, isRequiredText)

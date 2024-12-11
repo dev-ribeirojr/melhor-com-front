@@ -17,6 +17,8 @@ import {
 import { UseFormReturn } from 'react-hook-form'
 import { ProductSchemaProps } from './product-schema'
 import { colorsPhone } from '@/constants/colors-phone'
+import { useEffect } from 'react'
+import { formatDateToString } from '@/utils'
 
 interface FormProductProps {
   form: UseFormReturn<ProductSchemaProps>
@@ -34,6 +36,16 @@ export function FormProduct(data: FormProductProps) {
     isLoading = false,
     onSubmit,
   } = data
+
+  const dateValue = form.watch('date')
+  useEffect(() => {
+    form.setValue('date', formatDateToString(dateValue))
+  }, [dateValue, form])
+
+  const endDateValue = form.watch('endDate')
+  useEffect(() => {
+    form.setValue('endDate', formatDateToString(endDateValue))
+  }, [endDateValue, form])
 
   return (
     <Form {...form}>
