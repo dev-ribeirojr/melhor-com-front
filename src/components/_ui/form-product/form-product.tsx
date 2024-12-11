@@ -23,10 +23,18 @@ interface FormProductProps {
   onSubmit: (data: ProductSchemaProps) => void
   pathClose: string
   buttonText?: string
+  isLoading?: boolean
 }
 
 export function FormProduct(data: FormProductProps) {
-  const { form, onSubmit, pathClose, buttonText = 'SALVAR' } = data
+  const {
+    form,
+    pathClose,
+    buttonText = 'SALVAR',
+    isLoading = false,
+    onSubmit,
+  } = data
+
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)}>
@@ -126,11 +134,19 @@ export function FormProduct(data: FormProductProps) {
             )}
           />
         </div>
-        <div className="flex gap-2 items-center justify-end mt-8">
-          <Link to={pathClose}>
-            <Button type="button">VOLTAR</Button>
+        <div className="flex flex-col sm:flex-row gap-2 items-center justify-end mt-8">
+          <Link to={pathClose} className="w-full sm:w-fit">
+            <Button type="button" className="w-full sm:w-fit">
+              VOLTAR
+            </Button>
           </Link>
-          <Button type="submit">{buttonText}</Button>
+          <Button
+            type="submit"
+            isLoading={isLoading}
+            className="w-full sm:w-fit"
+          >
+            {buttonText}
+          </Button>
         </div>
       </form>
     </Form>
