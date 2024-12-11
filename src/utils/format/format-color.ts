@@ -1,23 +1,12 @@
+import { colorsPhone } from '@/constants/colors-phone'
 import { ColorProps } from '../../types'
 
 export function formatColors(color: ColorProps): string {
-  let textColor = ''
+  const isValidColor = colorsPhone.find((item) => item.color === color)
 
-  switch (color) {
-    case 'BLACK':
-      textColor = 'Preto'
-      break
-    case 'WHITE':
-      textColor = 'Branco'
-      break
-    case 'PINK':
-      textColor = 'Rosa'
-      break
-    case 'GOLD':
-      textColor = 'Dourado'
-      break
-    default:
-      textColor = '-'
+  if (isValidColor) {
+    return isValidColor.title
   }
-  return textColor
+
+  return '-'
 }
