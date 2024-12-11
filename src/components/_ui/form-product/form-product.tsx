@@ -40,12 +40,12 @@ export function FormProduct(data: FormProductProps) {
   const dateValue = form.watch('date')
   useEffect(() => {
     form.setValue('date', formatDateToString(dateValue))
-  }, [dateValue, form])
+  }, [dateValue])
 
   const endDateValue = form.watch('endDate')
   useEffect(() => {
     form.setValue('endDate', formatDateToString(endDateValue))
-  }, [endDateValue, form])
+  }, [endDateValue])
 
   return (
     <Form {...form}>
@@ -58,7 +58,11 @@ export function FormProduct(data: FormProductProps) {
               <FormItem>
                 <FormLabel>Modelo</FormLabel>
                 <FormControl>
-                  <Input placeholder="Modelo do aparelho" {...field} />
+                  <Input
+                    placeholder="Modelo do aparelho"
+                    {...field}
+                    value={field.value}
+                  />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -71,7 +75,11 @@ export function FormProduct(data: FormProductProps) {
               <FormItem>
                 <FormLabel>Marca</FormLabel>
                 <FormControl>
-                  <Input placeholder="Marca do aparelho" {...field} />
+                  <Input
+                    placeholder="Marca do aparelho"
+                    {...field}
+                    value={field.value}
+                  />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -113,6 +121,7 @@ export function FormProduct(data: FormProductProps) {
                     type="number"
                     {...field}
                     onChange={(e) => field.onChange(e.target.valueAsNumber)}
+                    value={field.value}
                   />
                 </FormControl>
                 <FormMessage />

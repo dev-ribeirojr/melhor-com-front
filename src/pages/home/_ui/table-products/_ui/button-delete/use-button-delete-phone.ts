@@ -1,12 +1,16 @@
+import { deletePhone } from '@/functions'
 import { useState } from 'react'
 
 export function useButtonDeletePhone() {
   const [isLoading, setIsLoading] = useState(false)
 
-  async function deletePhone(phoneCode: string) {
+  async function onSubmit(phoneId: number) {
     setIsLoading(true)
-    console.log(phoneCode)
+    const response = await deletePhone(phoneId)
+    if (response) {
+      window.location.reload()
+    }
     setIsLoading(false)
   }
-  return { isLoading, deletePhone }
+  return { isLoading, onSubmit }
 }

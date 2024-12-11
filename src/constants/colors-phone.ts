@@ -1,4 +1,16 @@
-export const colorsPhone = [
+export enum ColorProps {
+  BLACK,
+  PINK,
+  GOLD,
+  WHITE
+}
+interface ColorsProps {
+  id: number
+  title: string
+  color: 'BLACK' | 'WHITE' | 'GOLD' | 'PINK'
+}
+
+export const colorsPhone: ColorsProps[] = [
   {
     id: 1,
     color: 'BLACK',
