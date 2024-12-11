@@ -9,6 +9,14 @@ import { formatColors, formatToBrl } from '../../../../utils'
 export function TableProducts() {
   const { headerTableItems, phones } = useTableProducts()
 
+  if (phones.length === 0) {
+    return (
+      <div className="border border-black rounded-md h-40 flex items-center justify-center bg-primary-50">
+        <p>Nenhum produto encontrado.</p>
+      </div>
+    )
+  }
+
   return (
     <div className="border border-black rounded-md overflow-x-auto whitespace-nowrap">
       <table className=" w-full">
